@@ -1,18 +1,36 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--secondary) var(--primary);
 }
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+  border-radius: 0px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 14px;
+  border: 3px solid var(--primary);
+}
+
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;400;600&display=swap');
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --primary: rebeccapurple;
+  --primary: #111827;
   --secondary: cornflowerblue;
 }
 
@@ -32,4 +50,13 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+@layer components {
+  .animate-block {
+    @apply after:top-0 after:left-0 after:absolute after:w-[0%] after:h-[100%] after:bg-indigo-900 after:content-[''];
+  }
+  .animate-text {
+    @apply after:top-0 after:left-0 after:absolute after:w-[0%] after:h-[100%] after:bg-indigo-900 after:content-[''];
+  }
 }

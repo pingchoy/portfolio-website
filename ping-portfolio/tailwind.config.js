@@ -7,6 +7,9 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      'poppins': ['Poppins', 'sans-serif']
+    },
     extend: {
       textShadow: {
         sm: '0 1px 4px var(--tw-shadow-color)',
@@ -19,17 +22,32 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       animation: {
-        'fade-up-1.5s': 'fadeUp 1s ease-in-out',
+        'slow-pulse': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'fade-up-short': 'fadeUp 0.5s ease-in-out 0s both',
+        'fade-down-short': 'fadeDown 0.5s ease-in-out 0s both',
         // Only start this animation after 2 seconds
-        'fade-up-2s': 'slideLeft 1s ease-in-out 1s both',
-        'revBlock': 'appearText 0.0001s linear  1.7s forwards',
-        'revBlockAfter': 'revBlock 2s cubic-bezier(0.19,1,0.22,1) 1s forwards'
+        'fade-up-long': 'fadeUp 1s ease-in-out 1s both',
+        'revBlock': 'appearText 0.0001s linear  0.5s forwards',
+        'revBlockAfter': 'revBlock 2s cubic-bezier(0.19,1,0.22,1) 0s forwards',
+        'oneTimerevBlock': 'appearText 0.0001s linear  2.5s forwards',
+        'oneTimerevBlockAfter': 'revBlock 2s cubic-bezier(0.19,1,0.22,1) 2s forwards'
+
       },
       keyframes: {
         fadeUp: {
           '0%': {
             opacity: 0,
             transform: 'translateY(40px)',
+          },
+          '100%': {
+            opacity: 1,
+            transform: 'translateY(0)',
+          },
+        },
+        fadeDown: {
+          '0%': {
+            opacity: 0,
+            transform: 'translateY(-40px)',
           },
           '100%': {
             opacity: 1,
